@@ -1,0 +1,13 @@
+{
+  "name": "spotifast-mini",
+  "version": "1.0.0",
+  "description": "Tocadiscos flotante para Spotify en Windows",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.7.0"
+  }
+}

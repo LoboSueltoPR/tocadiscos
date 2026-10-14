@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'">
+<title>Tocadiscos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.6-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4.2" height="16" rx="1.2" fill="currentColor"/><rect x="13.8" y="4" width="4.2" height="16" rx="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M18.5 5.2v13.6a.9.9 0 0 1-1.4.75L7.6 12.75a.9.9 0 0 1 0-1.5l9.5-6.8a.9.9 0 0 1 1.4.75z" fill="currentColor"/><rect x="4.6" y="4.5" width="2.4" height="15" rx="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M5.5 5.2v13.6a.9.9 0 0 0 1.4.75l9.5-6.8a.9.9 0 0 0 0-1.5L6.9 4.45a.9.9 0 0 0-1.4.75z" fill="currentColor"/><rect x="17" y="4.5" width="2.4" height="15" rx="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+    <symbol id="i-repeat1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/><path d="M11 10h1v4"/></symbol>
+    <symbol id="i-min" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 12h12"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  </defs>
+</svg>
+
+<main id="card" class="card">
+
+  <!-- Tapa del disco en el atril -->
+  <section class="shelf">
+    <button id="sleeve" class="sleeve" title="Abrir Spotify">
+      <img id="sleeveA" alt=""><img id="sleeveB" alt="">
+      <div class="empty-sleeve">sin disco</div>
+      <i class="wear"></i>
+    </button>
+  </section>
+
+  <!-- Bandeja -->
+  <section id="deck" class="deck">
+    <i class="screw a"></i><i class="screw b"></i>
+    <button id="target" class="target" title="Siempre encima"><i></i></button>
+
+    <div class="platter">
+      <div class="mat"></div>
+      <div id="spin" class="spin">
+        <div id="vinyl" class="vinyl">
+          <img id="label" class="label" alt="">
+        </div>
+      </div>
+      <div class="sheen"></div>
+      <i class="spindle"></i>
+    </div>
+
+    <svg id="armSvg" class="arm" viewBox="0 0 300 192">
+      <defs>
+        <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fdfdfb"/><stop offset=".45" stop-color="#b9bab6"/><stop offset=".55" stop-color="#8d8e8a"/><stop offset="1" stop-color="#e5e5e2"/>
+        </linearGradient>
+        <radialGradient id="baseG" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#f2f2ef"/><stop offset="1" stop-color="#8a8b87"/></radialGradient>
+        <filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2"/></filter>
+        <g id="armShape">
+          <rect x="229" y="25" width="15" height="18" rx="3"/>
+          <rect x="243" y="31" width="160" height="6" rx="3"/>
+          <path d="M396 28 h20 l4 3 v6 l-4 3 h-20z"/>
+        </g>
+      </defs>
+      <circle cx="241" cy="182" r="5" fill="#2b2b2d" stroke="#555" stroke-width=".8"/>
+      <circle cx="241" cy="182" r="2" fill="#777"/>
+      <g id="armShadow" opacity=".5" filter="url(#blur)" fill="#000"><use href="#armShape"/></g>
+      <circle cx="262" cy="34" r="19" fill="#141415" stroke="#2c2c2e"/>
+      <circle cx="262" cy="34" r="13" fill="url(#baseG)"/>
+      <g id="arm">
+        <rect x="229" y="25" width="15" height="18" rx="3" fill="url(#chrome)"/><rect x="233" y="25" width="3" height="18" fill="#1b1b1c"/>
+        
+        <rect x="243" y="31.4" width="158" height="5.2" rx="2.6" fill="url(#chrome)"/>
+        <path d="M396 27.5 h20 l4.5 3.5 v6 l-4.5 3.5 h-20z" fill="#1c1c1d" stroke="#3a3a3c" stroke-width=".6"/>
+        <path d="M402 27.5 l6 -6 h3 l-5 6z" fill="#c8c8c5"/>
+        <rect x="410" y="33" width="3" height="2.4" fill="#d9b25a"/>
+        <circle cx="262" cy="34" r="5" fill="#2a2a2b"/>
+      </g>
+      <circle cx="262" cy="34" r="2.2" fill="#9a9b97"/>
+    </svg>
+
+    <button id="startBtn" class="start" title="Start / Stop (Espacio)">START·STOP</button>
+    <div class="rpm">
+      <button id="rpm33" class="rpm-btn on" title="33⅓ RPM"><i></i>33</button>
+      <button id="rpm45" class="rpm-btn" title="45 RPM"><i></i>45</button>
+    </div>
+    <div class="fader" title="Volumen (rueda del mouse)">
+      <span class="fader-label">VOL</span>
+      <div id="faderSlot" class="slot"><i class="mark"></i><button id="faderCap" class="cap"></button></div>
+    </div>
+  </section>
+
+  <!-- Información -->
+  <section class="info">
+    <h1 id="title" class="title">—</h1>
+    <div class="byline">
+      <p id="artist" class="artist">&nbsp;</p>
+    </div>
+    <p id="album" class="album">&nbsp;</p>
+
+    <div class="meters">
+      <div class="meter"><span>L</span><div id="ledL" class="leds"></div></div>
+      <div class="meter"><span>R</span><div id="ledR" class="leds"></div></div>
+    </div>
+
+    <div class="progress">
+      <span id="cur" class="time">0:00</span>
+      <div id="bar" class="bar"><div class="track"><i id="fill"></i></div></div>
+      <span id="dur" class="time">0:00</span>
+    </div>
+
+    <div class="controls">
+      <button id="shuffleBtn" class="ic toggle" title="Aleatorio (S)"><svg><use href="#i-shuffle"/></svg></button>
+      <button id="prevBtn" class="ic" title="Anterior (←)"><svg><use href="#i-prev"/></svg></button>
+      <button id="playBtn" class="play" title="Play / pausa (Espacio)"><svg><use id="playIcon" href="#i-play"/></svg></button>
+      <button id="nextBtn" class="ic" title="Siguiente (→)"><svg><use href="#i-next"/></svg></button>
+      <button id="repeatBtn" class="ic toggle" title="Repetir (R)"><svg><use id="repeatIcon" href="#i-repeat"/></svg></button>
+      <span class="sep"></span>
+      <button id="hideBtn" class="ic" title="Ocultar (Esc)"><svg><use href="#i-min"/></svg></button>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
